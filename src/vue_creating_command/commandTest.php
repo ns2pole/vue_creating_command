@@ -1,6 +1,6 @@
 <?php
 
-namespace syunsuke\nakamura;
+namespace Vue\Create;
 
 class Tarohida 
 {
