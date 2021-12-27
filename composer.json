@@ -1,0 +1,22 @@
+{
+    "name": "syunsuke/nakamura",
+    "description": "composer publish test",
+    "keywords": ["ns2pole"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Syunsuke Nakamura ",
+        "email": "spaceofstar2@gmail.com"
+      }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+      "psr-4": {
+        "syunsuke\\nakamura\\": "src/vue_creating_command"
+      }
+    }
+}
+
