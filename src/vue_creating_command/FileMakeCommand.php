@@ -13,7 +13,7 @@ class FileMakeCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'fileMake';
+    protected $signature = 'fileMake {test?}';
 
     /**
      * The console command description.
@@ -40,7 +40,7 @@ class FileMakeCommand extends Command
     public function handle()
     {
         // スタブファイルの内容を読み込む
-        $stub = File::get(app_path() . './stubs/blade.stub');
+        $stub = File::get(base_path() . '/vendor/syunsuke/nakamura/src/vue_creating_command/stubs/blade.stub');
 
         // 〜スタブファイルに対して置換などの加工処理などを行う〜
  
@@ -49,6 +49,7 @@ class FileMakeCommand extends Command
  
         // bladeファイルを作成
         File::put($blade, $stub);
+        File::prepend($blade, $this->argument('test'));
         dd('呼ばれたよ');
     }
 }

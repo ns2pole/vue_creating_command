@@ -41,12 +41,18 @@ class TemplateMakeCommand extends Command
      */
     public function handle()
     {
-        $allTables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
-        $modelName = $this->ask('モデル名の頭文字を入力してください。ex."w" or "u"' . $allTables);
+        $schema = DB::connection()->getDoctrineSchemaManager();
+        $tableNames = $schema->listTableNames();
+        $this->info('モデル名の頭文字を入力してください。');
+        foreach($tableNames as $t) {
+            $this->info($t);
+        }
+        $modelName = $this->ask('');
         if($modelName == 'w') {
             $columnName = $this->ask('カラム名の頭文字を入力してください。ex."c"');
+            $templateThowName = $this->ask('テンプレートにスローする名前を入力して下さい。ex."wallet"');
             if($columnName == 'c') {
-                Artisan::call('fileMake');
+                Artisan::call('fileMake', ['test' => $templateThowName]);
                 dd('色のeditを作成しました。');
             }
         } else if($modelName == 'u'){
