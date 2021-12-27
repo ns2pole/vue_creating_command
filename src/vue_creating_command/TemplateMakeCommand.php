@@ -41,7 +41,8 @@ class TemplateMakeCommand extends Command
      */
     public function handle()
     {
-        $modelName = $this->ask('モデル名の頭文字を入力してください。ex."w" or "u"');
+        $allTables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+        $modelName = $this->ask('モデル名の頭文字を入力してください。ex."w" or "u"' . $allTables);
         if($modelName == 'w') {
             $columnName = $this->ask('カラム名の頭文字を入力してください。ex."c"');
             if($columnName == 'c') {
