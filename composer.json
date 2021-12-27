@@ -15,7 +15,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Vue\\Create": "src/vue_creating_command/"
+        "Vue\\Create\\": "src/vue_creating_command"
       }
     }
 }
