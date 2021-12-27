@@ -1,6 +1,6 @@
 <?php
 
-namespace syunsuke\nakamura;
+namespace Vue\Create;
 
 use Illuminate\Console\Command;
 use App\Models\Wallet;
@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
-class ViewMakeCommand extends Command
+class TemplateMakeCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'viewMake';
+    protected $signature = 'vueTemplateMake';
 
     /**
      * The console command description.
@@ -41,9 +41,9 @@ class ViewMakeCommand extends Command
      */
     public function handle()
     {
-        $modelName = $this->ask('モデル名の頭文字を入力してください。');
+        $modelName = $this->ask('モデル名の頭文字を入力してください。ex."w" or "u"');
         if($modelName == 'w') {
-            $columnName = $this->ask('カラム名の頭文字を入力してください。');
+            $columnName = $this->ask('カラム名の頭文字を入力してください。ex."c"');
             if($columnName == 'c') {
                 Artisan::call('fileMake');
                 dd('色のeditを作成しました。');
